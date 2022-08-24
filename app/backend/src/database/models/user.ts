@@ -8,6 +8,7 @@ class User extends Model {
   public email!: string;
   public password!: string;
 }
+
 User.init({
   id: {
     type: INTEGER,
@@ -33,7 +34,7 @@ User.init({
 }, {
   underscored: true,
   sequelize: db,
-  modelName: 'user',
+  modelName: 'users',
   timestamps: false,
 });
 
