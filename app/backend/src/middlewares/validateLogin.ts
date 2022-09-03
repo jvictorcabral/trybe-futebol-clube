@@ -1,19 +1,20 @@
 import { Request, Response, NextFunction } from 'express';
 import Joi = require('joi');
 
-const errorMessage = 'Some required fields are missing';
+const errorMessage = 'Incorrect email or password';
+const errorEmptyMessage = 'All fields must be filled';
 
 const VALIDATE = Joi.object({
   email: Joi.string().email().required()
     .messages({
-      'string.empty': errorMessage,
-      'any.required': errorMessage,
-      'string.email': 'Invalid fields',
+      'string.empty': errorEmptyMessage,
+      'any.required': errorEmptyMessage,
+      'string.email': errorMessage,
     }),
   password: Joi.string().required()
     .messages({
-      'string.empty': errorMessage,
-      'any.required': errorMessage,
+      'string.empty': errorEmptyMessage,
+      'any.required': errorEmptyMessage,
     }),
 });
 
