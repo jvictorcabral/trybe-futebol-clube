@@ -1,5 +1,6 @@
 import * as express from 'express';
 import loginController from './controllers/loginController';
+import teamController from './controllers/teamController';
 import validateLogin from './middlewares/validateLogin';
 import validateToken from './middlewares/validateToken';
 
@@ -28,6 +29,8 @@ class App {
 
     this.app.post('/login', validateLogin, loginController.login);
     this.app.get('/login/validate', validateToken, loginController.validate);
+
+    this.app.get('/teams', teamController.getTeams);
   }
 
   public start(PORT: string | number):void {
