@@ -19,16 +19,16 @@ module.exports = {
         field: 'home_team_goals'
 
       },
-      awayTeams: {
+      awayTeam: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: 'away_teams'
+        field: 'away_team'
 
       },
-      awayTeamsGoals: {
+      awayTeamGoals: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: 'away_teams_goals'
+        field: 'away_team_goals'
 
       },
       inProgress: {
