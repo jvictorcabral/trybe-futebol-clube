@@ -1,5 +1,6 @@
 import * as express from 'express';
 import loginController from './controllers/loginController';
+import matchesConstroller from './controllers/matchesConstroller';
 import teamController from './controllers/teamController';
 import validateLogin from './middlewares/validateLogin';
 import validateToken from './middlewares/validateToken';
@@ -32,6 +33,8 @@ class App {
 
     this.app.get('/teams', teamController.getTeams);
     this.app.get('/teams/:id', teamController.getOneTeam);
+
+    this.app.get('/matches', matchesConstroller.getMatches);
   }
 
   public start(PORT: string | number):void {
