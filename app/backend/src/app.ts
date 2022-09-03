@@ -31,6 +31,7 @@ class App {
     this.app.get('/login/validate', validateToken, loginController.validate);
 
     this.app.get('/teams', teamController.getTeams);
+    this.app.get('/teams/:id', teamController.getOneTeam);
   }
 
   public start(PORT: string | number):void {
