@@ -5,14 +5,12 @@ import Matches from '../database/models/matches';
 const getMatches = async (req: Request, res: Response) => {
   const { inProgress } = req.query;
 
-  const matches = await Matches.findAll(
-    {
-      include: [
-        { model: Teams, as: 'teamHome', attributes: ['teamName'] },
-        { model: Teams, as: 'teamAway', attributes: ['teamName'] },
-      ],
-    },
-  );
+  const matches = await Matches.findAll({
+    include: [
+      { model: Teams, as: 'teamHome', attributes: ['teamName'] },
+      { model: Teams, as: 'teamAway', attributes: ['teamName'] },
+    ],
+  });
 
   if (inProgress === 'true') {
     const filterInProgress = matches.filter((match) => match.inProgress === true);
