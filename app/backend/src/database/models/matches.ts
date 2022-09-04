@@ -20,30 +20,30 @@ Matches.init({
   homeTeam: {
     type: INTEGER,
     allowNull: false,
-    field: 'home_team',
+    // field: 'home_team',
   },
   homeTeamsGoals: {
     type: INTEGER,
     allowNull: false,
-    field: 'home_team_goals',
+    // field: 'home_team_goals',
 
   },
   awayTeam: {
     type: INTEGER,
     allowNull: false,
-    field: 'away_team',
+    // field: 'away_team',
 
   },
   awayTeamGoals: {
     type: INTEGER,
     allowNull: false,
-    field: 'away_team_goals',
+    // field: 'away_team_goals',
 
   },
   inProgress: {
     type: BOOLEAN,
     allowNull: false,
-    field: 'in_progress',
+    // field: 'in_progress',
 
   },
 }, {
