@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
         field: 'home_team'
       },
-      homeTeamsGoals: {
+      homeTeamGoals: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'home_team_goals'
