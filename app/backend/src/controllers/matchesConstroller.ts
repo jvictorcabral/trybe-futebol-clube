@@ -29,6 +29,21 @@ const getMatches = async (req: Request, res: Response) => {
   return res.status(200).json(matches);
 };
 
+const postMatches = async (req: Request, res: Response) => {
+  const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = req.body;
+
+  const createMatch = await Matches.create({
+    homeTeam,
+    awayTeam,
+    homeTeamGoals,
+    awayTeamGoals,
+    inProgress: true,
+  });
+
+  return res.status(201).json(createMatch);
+};
+
 export default {
   getMatches,
+  postMatches,
 };

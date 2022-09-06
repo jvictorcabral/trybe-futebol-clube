@@ -7,12 +7,12 @@ const validateToken = async (req: Request, res: Response, next: NextFunction) =>
     const auth = req.headers.authorization;
 
     if (!auth) {
-      return res.status(401).json({ message: 'Token not found' });
+      return res.status(401).json({ message: 'Token must be a valid token' });
     }
 
     verify(auth, SECRET);
   } catch (err) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
+    return res.status(401).json({ message: 'Token must be a valid token' });
   }
 
   next();
