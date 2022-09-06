@@ -56,8 +56,23 @@ const finishMatches = async (req: Request, res: Response) => {
   return res.status(200).json({ message: 'Finished' });
 };
 
+const updateMatch = async (req: Request, res: Response) => {
+  const { homeTeamGoals, awayTeamGoals } = req.body;
+  const { id } = req.params;
+
+  await Matches.update(
+    { homeTeamGoals, awayTeamGoals },
+    { where: { id } },
+  );
+
+  const updatedMatch = await Matches.findByPk(id);
+
+  return res.status(200).json(updatedMatch);
+};
+
 export default {
   getMatches,
   postMatches,
   finishMatches,
+  updateMatch,
 };

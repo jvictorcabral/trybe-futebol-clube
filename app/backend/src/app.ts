@@ -38,6 +38,7 @@ class App {
     this.app.get('/matches', matchesConstroller.getMatches);
     this.app.post('/matches', validateToken, matchValidate, matchesConstroller.postMatches);
     this.app.patch('/matches/:id/finish', matchesConstroller.finishMatches);
+    this.app.patch('/matches/:id', matchesConstroller.updateMatch);
   }
 
   public start(PORT: string | number):void {
