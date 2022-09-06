@@ -2,10 +2,7 @@ import * as express from 'express';
 import loginController from './controllers/loginController';
 import matchesConstroller from './controllers/matchesConstroller';
 import teamController from './controllers/teamController';
-import matchValid from './middlewares/matchValidate';
-import teamValid from './middlewares/teamValidate';
-// import matchValidate from './middlewares/matchValidate';
-// import teamValidate from './middlewares/teamValidate';
+import matchValidate from './middlewares/matchValidate';
 import validateLogin from './middlewares/validateLogin';
 import validateToken from './middlewares/validateToken';
 
@@ -39,7 +36,8 @@ class App {
     this.app.get('/teams/:id', teamController.getOneTeam);
 
     this.app.get('/matches', matchesConstroller.getMatches);
-    this.app.post('/matches', validateToken, matchValid, teamValid, matchesConstroller.postMatches);
+    this.app.post('/matches', validateToken, matchValidate, matchesConstroller.postMatches);
+    this.app.patch('/matches/:id/finish', matchesConstroller.finishMatches);
   }
 
   public start(PORT: string | number):void {

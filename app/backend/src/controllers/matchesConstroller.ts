@@ -43,7 +43,21 @@ const postMatches = async (req: Request, res: Response) => {
   return res.status(201).json(createMatch);
 };
 
+const finishMatches = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  Matches.update(
+    {
+      inProgress: false,
+    },
+    { where: { id } },
+  );
+
+  return res.status(200).json({ message: 'Finished' });
+};
+
 export default {
   getMatches,
   postMatches,
+  finishMatches,
 };
