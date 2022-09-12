@@ -106,8 +106,7 @@ describe('Testando /login', () => {
       const response = await chai
       .request(app)
       .get('/login/validate')
-      // .auth(validToken, )
-      .auth(validToken, { type: 'bearer' });
+      .set('Authorization', validToken)
 
       expect(response.status).be.equal(200);
       expect(response.body).have.property('role');
@@ -120,7 +119,7 @@ describe('Testando /login', () => {
       const response = await chai
       .request(app)
       .get('/login/validate')
-      .auth(invalidToken, { type: 'bearer' });
+      .set('Authorization', invalidToken)
 
       expect(response.status).be.equal(401);
       expect(response.body).have.property('message');
