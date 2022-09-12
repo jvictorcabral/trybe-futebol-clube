@@ -12,13 +12,13 @@ const login = async (req: Request, res: Response) => {
   const user = await User.findOne({ where: { email } });
 
   if (!user) {
-    return res.status(400).json({ message: 'Invalid fields' });
+    return res.status(401).json({ message: 'Incorrect email or password' });
   }
 
   const findPassword = bcrypt.compareSync(password, user.password);
 
   if (!findPassword) {
-    return res.status(400).json({ message: 'Invalid fields' });
+    return res.status(401).json({ message: 'Incorrect email or password' });
   }
 
   const token = sign({ email, password }, SECRET);
