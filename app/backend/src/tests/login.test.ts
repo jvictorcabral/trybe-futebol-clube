@@ -40,12 +40,12 @@ const validToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXN
 const invalidToken = 'invalidToken'
 
 describe('Testando /login', () => {
+  
+  afterEach(() => {
+    sinon.restore();
+  });
+
   describe('Rota do tipo POST', () => {
-
-    afterEach(() => {
-      sinon.restore();
-    });
-
     it('deve retornar o status 200 e o token', async () => {
       const response = await chai
         .request(app)
