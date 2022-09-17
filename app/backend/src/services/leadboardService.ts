@@ -71,11 +71,11 @@ const filterHomeTeams = async (matches: Matches[], id: number, teamName: string)
 
   return {
     name: teamName,
-    totalPoints: (result.totalVictories * 3) + (result.totalDraws),
+    totalPoints: result.totalPoints,
     totalGames: filterTeam.length,
-    totalVictories: result.totalLosses,
+    totalVictories: result.totalVictories,
     totalDraws: result.totalDraws,
-    totalLosses: result.totalVictories,
+    totalLosses: result.totalLosses,
     goalsFavor: goalsScored,
     goalsOwn: GoalsConceded,
     goalsBalance: goalsScored - GoalsConceded,
@@ -88,17 +88,15 @@ const filterAwayTeams = async (matches: Matches[], id: number, teamName: string)
 
   const filterTeam = finishFilter.filter((match) => match.awayTeam === id);
 
-  const goalsScored = sumGoalsScored(filterTeam);
+  const goalsScored = sumGoalsConceded(filterTeam);
 
-  const GoalsConceded = sumGoalsConceded(filterTeam);
+  const GoalsConceded = sumGoalsScored(filterTeam);
 
   const result = calculateResults(filterTeam);
 
-  const efficiency = ((result.totalPoints / (filterTeam.length * 3)) * 100).toFixed(2);
-
   return {
     name: teamName,
-    totalPoints: (result.totalVictories * 3) + (result.totalDraws),
+    totalPoints: (result.totalLosses * 3) + (result.totalDraws),
     totalGames: filterTeam.length,
     totalVictories: result.totalLosses,
     totalDraws: result.totalDraws,
@@ -106,7 +104,8 @@ const filterAwayTeams = async (matches: Matches[], id: number, teamName: string)
     goalsFavor: goalsScored,
     goalsOwn: GoalsConceded,
     goalsBalance: goalsScored - GoalsConceded,
-    efficiency,
+    efficiency: ((((result.totalLosses * 3) + result.totalDraws) / (filterTeam.length * 3)) * 100)
+      .toFixed(2),
   };
 };
 
