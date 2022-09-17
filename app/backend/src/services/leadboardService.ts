@@ -61,9 +61,9 @@ const filterHomeTeams = async (matches: Matches[], id: number, teamName: string)
 
   const filterTeam = finishFilter.filter((match) => match.homeTeam === id);
 
-  const goalsScored = sumGoalsConceded(filterTeam);
+  const goalsScored = sumGoalsScored(filterTeam);
 
-  const GoalsConceded = sumGoalsScored(filterTeam);
+  const GoalsConceded = sumGoalsConceded(filterTeam);
 
   const result = calculateResults(filterTeam);
 
@@ -88,9 +88,9 @@ const filterAwayTeams = async (matches: Matches[], id: number, teamName: string)
 
   const filterTeam = finishFilter.filter((match) => match.awayTeam === id);
 
-  const goalsScored = sumGoalsConceded(filterTeam);
+  const goalsScored = sumGoalsScored(filterTeam);
 
-  const GoalsConceded = sumGoalsScored(filterTeam);
+  const GoalsConceded = sumGoalsConceded(filterTeam);
 
   const result = calculateResults(filterTeam);
 
