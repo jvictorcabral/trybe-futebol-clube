@@ -29,12 +29,10 @@ const login = async (req: Request, res: Response) => {
 const validate = async (req: Request, res: Response) => {
   const auth = req.headers.authorization || 'invalidToken';
   const decoded = verify(auth, SECRET) as JwtPayload;
-  // console.log('decoded: ', decoded.email);
 
   const getUser = await User.findOne({
     where: { email: decoded.email },
   });
-  // console.log(getUser?.role);
 
   return res.status(200).json({ role: getUser?.role });
 };

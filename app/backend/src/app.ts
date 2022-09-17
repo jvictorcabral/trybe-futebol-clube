@@ -1,4 +1,5 @@
 import * as express from 'express';
+import leaderboardController from './controllers/leaderboardController';
 import loginController from './controllers/loginController';
 import matchesConstroller from './controllers/matchesConstroller';
 import teamController from './controllers/teamController';
@@ -39,6 +40,8 @@ class App {
     this.app.post('/matches', validateToken, matchValidate, matchesConstroller.postMatches);
     this.app.patch('/matches/:id/finish', matchesConstroller.finishMatches);
     this.app.patch('/matches/:id', matchesConstroller.updateMatch);
+
+    this.app.get('/leaderboard/home', leaderboardController.getHome);
   }
 
   public start(PORT: string | number):void {
