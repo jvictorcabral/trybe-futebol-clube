@@ -71,7 +71,7 @@ const filterHomeTeams = async (matches: Matches[], id: number, teamName: string)
 
   return {
     name: teamName,
-    totalPoints: (result.totalLosses * 3) + (result.totalDraws),
+    totalPoints: (result.totalVictories * 3) + (result.totalDraws),
     totalGames: filterTeam.length,
     totalVictories: result.totalLosses,
     totalDraws: result.totalDraws,
@@ -98,7 +98,7 @@ const filterAwayTeams = async (matches: Matches[], id: number, teamName: string)
 
   return {
     name: teamName,
-    totalPoints: (result.totalLosses * 3) + (result.totalDraws),
+    totalPoints: (result.totalVictories * 3) + (result.totalDraws),
     totalGames: filterTeam.length,
     totalVictories: result.totalLosses,
     totalDraws: result.totalDraws,
