@@ -40,7 +40,7 @@ describe('Testando /matches', () => {
       expect(response.body[0].homeTeam).be.equal(16);
 
       expect(response.body[0].homeTeamGoals).exist;
-      expect(response.body[0].homeTeamGoals).be.equal(3);
+      expect(response.body[0].homeTeamGoals).be.equal(1);
 
       expect(response.body[0].awayTeam).exist;
       expect(response.body[0].awayTeam).be.equal(8);
@@ -126,7 +126,7 @@ describe('Testando /matches', () => {
       expect(response.body[0].homeTeam).be.equal(16);
 
       expect(response.body[0].homeTeamGoals).exist;
-      expect(response.body[0].homeTeamGoals).be.equal(3);
+      expect(response.body[0].homeTeamGoals).be.equal(1);
 
       expect(response.body[0].awayTeam).exist;
       expect(response.body[0].awayTeam).be.equal(8);
