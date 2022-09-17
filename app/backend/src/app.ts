@@ -42,6 +42,7 @@ class App {
     this.app.patch('/matches/:id', matchesConstroller.updateMatch);
 
     this.app.get('/leaderboard/home', leaderboardController.getHome);
+    this.app.get('/leaderboard/away', leaderboardController.getAway);
   }
 
   public start(PORT: string | number):void {
