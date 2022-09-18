@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do Trybe Futebol Clube!
+<!-- # Boas vindas ao repositório do Trybe Futebol Clube!
 
 Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
@@ -2490,4 +2490,4 @@ Esse projeto é composto de 4 seções principais:
 ```
 </details>
 
-</details>
+</details> -->
